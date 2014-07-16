@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+
+
+</head>
+<body>
+
+<!--<h2>ਗੁਰ ਪਰਸਾਦੀ ਕਿਸੈ ਦੇ ਵਡਿਆਈ ਨਾਮੋ ਨਾਮੁ ਧਿਆਇਦਾ ॥੫॥</h2>-->
+
+<canvas id="myCanvas" width="700" height="100" style="border:1px solid #000000;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<div id="createPNGButton">
+    <button onclick="putImage()">Save as Image</button>        
+</div>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.font = "30px Arial";
+ctx.fillText("ਗੁਰ ਪਰਸਾਦੀ ਕਿਸੈ ਦੇ ਵਡਿਆਈ ਨਾਮੋ ਨਾਮੁ ਧਿਆਇਦਾ ॥੫॥",10,50);
+
+
+function putImage()
+{
+  var canvas = document.getElementById("myCanvas");
+  /*        
+  if (canvas1.getContext) {
+     var ctx = canvas1.getContext("2d");                
+     var myImage = canvas1.toDataURL("image/png");      
+  }
+  */
+  //var imageElement = document.getElementById("MyPix");  
+  //imageElement.src = myImage;
+  
+  var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+  window.location.href=image; // it will save locally
+                               
+
+}  
+
+
+
+</script>
+</body>
+</html>
