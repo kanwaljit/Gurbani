@@ -64,4 +64,9 @@ echo "<a href='page.php?page=$page'>".$page."</a>";
 echo ' - Line: ';
 
 echo $line;
+
+echo ' - Teeka: ';
+
+echo "<a href='teeka.php?shabad=$shabad_id'>".$shabad_id."</a>";
+
 ?>
