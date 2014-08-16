@@ -12,6 +12,7 @@
 	//var conversionType = parseInt(document.getElementById("conversionType").value);
 	var conversionType = conversionType=1;
 	
+	//var panFontTxt_NewLineSplitarray = panFontTxt.replace("Ø","").replace(">","").split("\n");
 	var panFontTxt_NewLineSplitarray = panFontTxt.replace("Ø","").replace(">","").split("\n");
 	var convertedText = "";
 	
@@ -165,6 +166,7 @@
 		if(i != panFontTxt_NewLineSplitarray.length - 1)
 		{
 			convertedText += "\n";
+			//convertedText += "<br/>";
 		}
 	}
 	

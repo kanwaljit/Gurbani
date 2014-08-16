@@ -24,7 +24,7 @@ span {
 <body>
 <?php 
 // Create connection
-$con=mysqli_connect("localhost","gurbani","gurbani","gurbani");
+$con=mysqli_connect("localhost","gurbani","gurbani","isg");
 
 // Check connection
 if (mysqli_connect_errno()) {
@@ -40,15 +40,8 @@ if (!$con->set_charset("utf8")) {
 */
 
 
-if($_GET['shabad'])
-{
-	$shabad = $_GET['shabad'];
-} else 
-{
-	$shabad = rand(1,5540);
-}
-
-$sql = "SELECT gurmukhi, teeka, english FROM igs where shabd=$shabad order by ID";
+$page = $_GET['page'];
+$sql = "SELECT gurmukhi, teeka, english FROM igs where page=$page and script='dgs' order by ID";
 
 $result = mysqli_query($con,$sql);
 
@@ -76,7 +69,7 @@ echo "<hr/>";
 
 echo '<input value="Convert" onclick="convert()" type="button">';
 
-echo $shabad; 
+echo $page; 
 
 mysqli_close($con);
 
