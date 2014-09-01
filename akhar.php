@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors',1);
-error_reporting (E_ALL);
-set_time_limit(0);
 header('Content-Type: text/html; charset=utf-8');
 // Create connection
 $con=mysqli_connect("localhost","gurbani","gurbani","gurbani");
@@ -19,26 +16,48 @@ if (!$con->set_charset("utf8")) {
 }
 
 
-$sql="SELECT text, page, line FROM scriptures where page<14 order by id";
+if($_GET['akhar'])
+{
+	$akhar = $_GET['akhar'];
+} else 
+{
+	// pick random from akhar table
+	//$shabad_id = rand(1,5540);
+}
+echo $akhar;
 
-$result = mysqli_query($con, $sql);
+mysql_set_charset('utf8', $con);
+
+$sql = "SELECT text, page, line from scriptures where
+(text like '$akhar %' ) OR 
+(text like '% $akhar %' ) OR
+(text like '% $akhar' ) 
+order by id";
+
+echo "<br><br>";
+
+echo $sql;
+
+echo "<br><br>";
+
+$result = mysqli_query($con,$sql);
+
+$row_cnt = $result->num_rows;
+
+echo "Total Tuks = " . $row_cnt;
+
+echo "<br><br>";
+
 
 while($row = mysqli_fetch_array($result)) {
-	$words = explode(' ', $row['text']);
-	$page = $row['page'];
-	$line = $row['line'];
-	echo $page . ' - ' . $line; 
-	foreach($words as $index => $word)
-	{
-		//$query = "INSERT INTO myCity VALUES (NULL, 'Stuttgart', 'DEU', 'Stuttgart', 617000)";
-			$word_count = $index + 1;
-			//echo $word_count . ' - ' . $word."<br>";
-			$sql="INSERT INTO akhar (akhar, page, line, word) VALUES ('$word', $page, $line,$word_count)";
-			mysqli_query($con, $sql);
-	}		
+  echo "<b>".$row['text']."</b> - ".$row['page'];
+  echo "<br>";  
+  
 }
 
 echo "<hr/>";
+
+echo $shabad_id; 
 
 mysqli_close($con);
 
