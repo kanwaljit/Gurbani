@@ -21,11 +21,10 @@ $hymn=0;
 $page=0;
 $line=0;
 
-$result = mysqli_query($con,"SELECT text, shabad_id, hymn, page, line FROM Scriptures where id=$line_id");
+$result = mysqli_query($con,"SELECT text, hymn, page, line FROM scriptures where id=$line_id");
 
 while($row = mysqli_fetch_array($result)) {
   echo "<h2>".$row['text']."<h2>";
-  $shabad_id = $row['shabad_id'];
   $hymn = $row['hymn'];
   $page = $row['page'];
   $line = $row['line'];
@@ -48,10 +47,6 @@ echo ' - Scripture Id: ';
 echo $line_id; 
 
 mysqli_close($con);
-
-echo ' - Shabad: ';
-
-echo "<a href='shabad.php?shabad_id=$shabad_id'>".$shabad_id."</a>";
 
 echo ' - Hymn: ';
 

@@ -34,9 +34,9 @@ $sql = "SELECT text, page, line from scriptures where
 (text like '% $akhar' ) 
 order by id";
 
-//echo "<br><br>";
+echo "<br><br>";
 
-//echo $sql;
+echo $sql;
 
 echo "<br><br>";
 
@@ -50,7 +50,7 @@ echo "<br><br>";
 
 
 while($row = mysqli_fetch_array($result)) {
-  echo "<b>".$row['text']."</b> - page: <a href='page.php?page=$page'>".$row['page']."</a> - line: " .$row['line'];
+  echo "<b>".$row['text']."</b> - ".$row['page'];
   echo "<br>";  
   
 }
