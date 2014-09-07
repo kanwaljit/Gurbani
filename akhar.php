@@ -22,7 +22,10 @@ if($_GET['akhar'])
 } else 
 {
 	// pick random from akhar table
-	//$shabad_id = rand(1,5540);
+	$sql = "SELECT word FROM word ORDER BY RAND() LIMIT 1;";
+	$result = mysqli_query($con,$sql);
+	$row = mysqli_fetch_array($result);
+	$akhar=$row['word'];
 }
 echo $akhar;
 
