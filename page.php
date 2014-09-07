@@ -21,7 +21,7 @@ if($_GET['page'])
 	$page = $_GET['page'];
 } else 
 {
-	$page = rand(1,5540);
+	$page = rand(1,1430);
 }
 
 $result = mysqli_query($con,"SELECT scriptures.text as text, translations.text as trans FROM translations inner join scriptures on scriptures.id = translations.scripture_id

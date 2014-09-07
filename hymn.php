@@ -21,7 +21,7 @@ if($_GET['hymn'])
 	$hymn = $_GET['hymn'];
 } else 
 {
-	$hymn = rand(1,5540);
+	$hymn = rand(1,3620);
 }
 
 $result = mysqli_query($con,"SELECT scriptures.text as text, translations.text as trans FROM translations inner join scriptures on scriptures.id = translations.scripture_id
