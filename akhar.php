@@ -50,7 +50,8 @@ echo "<br><br>";
 
 
 while($row = mysqli_fetch_array($result)) {
-  echo "<b>".$row['text']."</b> - page: <a href='page.php?page=$page'>".$row['page']."</a> - line: " .$row['line'];
+  $page=$row['page'];
+  echo "<b>".$row['text']."</b> - page: <a href='page.php?page=$page'>".$page."</a> - line: " .$row['line'];
   echo "<br>";  
   
 }
