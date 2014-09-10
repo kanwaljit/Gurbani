@@ -54,7 +54,8 @@ echo "<br><br>";
 
 while($row = mysqli_fetch_array($result)) {
   $page=$row['page'];
-  echo "<b>".$row['text']."</b> - page: <a href='page.php?page=$page'>".$page."</a> - line: " .$row['line'];
+  $line=$row['line'];
+  echo "<b>".$row['text']."</b> - page: <a href='page.php?page=$page'>".$page."</a> - line: " .$row['line'] ." - <a href='teeka.php?page=".$page."&line=".$line."'>Teeka</a>";
   echo "<br>";  
   
 }
