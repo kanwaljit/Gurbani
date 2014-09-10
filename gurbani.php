@@ -62,6 +62,6 @@ echo $line;
 
 echo ' - Teeka: ';
 
-echo "<a href='teeka.php?shabad=$shabad_id'>".$shabad_id."</a>";
+echo "<a href='teeka.php?page=".$page."&line=".$line."'>".$page."-". $line."</a>";
 
 ?>

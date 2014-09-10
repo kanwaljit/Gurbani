@@ -40,15 +40,23 @@ if (!$con->set_charset("utf8")) {
 */
 
 
-if($_GET['shabad'])
+if($_GET['page'])
 {
-	$shabad = $_GET['shabad'];
+ 
+	$page = $_GET['page'];
+	$where = " page=".$page;
+	if($_GET['line'])
+	{
+		$line = $_GET['line'];
+		$where .= " AND line=".$line;
+	}
 } else 
 {
-	$shabad = rand(1,5540);
+	$line_id = rand(1,60629);
+	$where = " id=".$line_id;
 }
 
-$sql = "SELECT gurmukhi, teeka, english FROM igs where shabd=$shabad order by ID";
+$sql = "SELECT gurmukhi, teeka, english FROM igs where $where order by ID";
 
 $result = mysqli_query($con,$sql);
 
@@ -76,7 +84,7 @@ echo "<hr/>";
 
 echo '<input value="Convert" onclick="convert()" type="button">';
 
-echo $shabad; 
+echo "$page - $line - $line_id"; 
 
 mysqli_close($con);
 
