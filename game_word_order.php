@@ -68,7 +68,7 @@ $row = mysqli_fetch_array($result);
 $line = $row['text'];
 $words = explode(' ',$line);
 shuffle($words);
-//echo "<h2>".$line."<h2>";
+echo "<!-- ".$line." -->";
 //echo "<br>";
 
 
