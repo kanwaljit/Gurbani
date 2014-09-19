@@ -58,13 +58,16 @@ while($row = mysqli_fetch_array($result)) {
 	//echo $page . ' - ' . $line . '<br/>';
 	$search = ''; 
 	foreach($words as $word)
-		$search .= $word[0];
+		$search .= ($word[0]=='i')?$word[1]:$word[0];
 	
 	echo $text . ' = ' . $search . '<br/>';
 			
 	$sql="UPDATE igs set search = '$search' where ID=$id";
 	mysqli_query($con, $sql);		
 }
+
+$sql="update igs set search = replace(search, ']','');";
+mysqli_query($con, $sql);
 
 mysqli_close($con);
 
