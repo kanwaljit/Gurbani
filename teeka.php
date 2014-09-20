@@ -42,7 +42,7 @@ if (!$con->set_charset("utf8")) {
 
 if($_GET['page'])
 {
-	
+ 
 	$page = $_GET['page'];
 	$where = " page=".$page;
 	if($_GET['line'])
@@ -65,24 +65,24 @@ $result = mysqli_query($con,$sql);
 //echo $sql;
 //echo "<span id='txtPanFont'>";
 while($row = mysqli_fetch_array($result)) {
-  echo "<span><b>".$row['gurmukhi']."</b></span>";
+  echo "<span id='txtPanFont'>".$row['gurmukhi'];
+  echo "\n";
+  echo $row['teeka']."</span>";
   echo "<br/>";
-  echo "<span>".$row['teeka']."</span>";
-  echo "<br/>";
-  echo "".$row['english']."";
-  echo "<br/>";
+  //echo "".$row['english']."";
+  //echo "<br/>";
   echo "<br/>";    
 }
 //echo "</span>";
 
 echo "<hr/>";
 
-echo "<span id='txtUniFont'>";
-echo "</span>";
+echo "<div id='txtUniFont'>";
+echo "</div>";
 
 echo "<hr/>";
 
-echo '<input value="Convert" onclick="convert()" type="button">';
+echo '<input value="Convert To Unicode" onclick="convert()" type="button">';
 
 echo "$page - $line - $line_id"; 
 

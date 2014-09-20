@@ -13,7 +13,8 @@
 	var conversionType = conversionType=1;
 	
 	//var panFontTxt_NewLineSplitarray = panFontTxt.replace("Ø","").replace(">","").split("\n");
-	var panFontTxt_NewLineSplitarray = panFontTxt.replace("Ø","").replace(">","").split("\n");
+	//var panFontTxt_NewLineSplitarray = panFontTxt.replace("Ø","").replace(">","").split("\n");
+	var panFontTxt_NewLineSplitarray = panFontTxt.split("\n");
 	var convertedText = "";
 	
 	var nextLineToConvert = 1;
@@ -407,6 +408,9 @@ function convertText(charToConvert){
 		case ']':
 		      return '||';
 		      break;
+		case '[':
+		      return '|';
+		      break;		      
 		case '<':
 		      return 'ੴ';
 		      break;
@@ -422,7 +426,7 @@ function convertText(charToConvert){
 } 
 
 function removeUnwantedChars(str){ 
-    str = str.replace(/>/gi, "");
-    str = str.replace(/Ø/gi, "");
+    //str = str.replace(/>/gi, "");
+    //str = str.replace(/Ø/gi, "");
     return str;
 }
