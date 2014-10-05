@@ -24,6 +24,15 @@ if($_GET['page'])
 	$page = rand(1,1430);
 }
 
+echo "Page: " . $page . "<br/>";
+?>
+<audio controls>
+  <source src="../audio/Page <?php echo $page; ?>.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<?php 
+echo "<hr/>";
+
 $result = mysqli_query($con,"SELECT scriptures.text as text, translations.text as trans FROM translations inner join scriptures on scriptures.id = translations.scripture_id
 where translations.language_id=13 and page=$page order by scripture_id");
 
@@ -36,10 +45,4 @@ while($row = mysqli_fetch_array($result)) {
 }
 mysqli_close($con);
 echo "<hr/>";
-echo "Page: " . $page
 ?>
-
-<audio controls>
-  <source src="../audio/Page <?php echo $page; ?>.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
