@@ -24,8 +24,16 @@ if($_GET['page'])
 	$page = rand(1,1430);
 }
 
-echo "Page: " . $page . "<br/>";
+echo "Page: " . $page . "";
+$prev = $page - 1;
+$next = $page + 1;
+echo " - <a href='page.php?page=$prev'>Prev</a> - ";
+echo " - <a href='page.php?page=$next'>Next</a> - ";
 ?>
+<form name="input" action="page.php" method="get">
+Go to Page: <input type="text" name="page" size="4" maxlength="4">
+<input type="submit" value="Submit">
+</form>
 <audio controls>
   <source src="../audio/Page <?php echo $page; ?>.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
