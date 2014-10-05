@@ -27,8 +27,8 @@ if($_GET['page'])
 echo "Page: " . $page . "";
 $prev = $page - 1;
 $next = $page + 1;
-echo " - <a href='page.php?page=$prev'>Prev</a> - ";
-echo " - <a href='page.php?page=$next'>Next</a> - ";
+echo " - <a href='page.php?page=$prev'>Prev</a>";
+echo " - <a href='page.php?page=$next'>Next</a>";
 ?>
 <form name="input" action="page.php" method="get">
 Go to Page: <input type="text" name="page" size="4" maxlength="4">
