@@ -36,7 +36,14 @@ while($row = mysqli_fetch_array($result)) {
 }
 
 echo "<hr/>";
+?>
 
+<audio controls>
+  <source src="../audio/Page <?php echo $page; ?>.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<?php 
 echo $page; 
 
 mysqli_close($con);
