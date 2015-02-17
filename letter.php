@@ -34,29 +34,73 @@ while($row = mysqli_fetch_array($result)) {
 
 echo "<hr/>";
 
+echo "<br/>";
+
 if($_GET['letter'])
 {
+    
 	$letter = $_GET['letter'];
 	
 	mysql_set_charset('utf8', $con);
 	
-	$sql = "SELECT word, tot from word where	word like '$letter%' order by word";
-	
-	$result = mysqli_query($con,$sql);
-	
-	$row_cnt = $result->num_rows;
-	
-	echo "Total words = " . $row_cnt;
-	
-	echo "<br><br>";
-	
-	while($row = mysqli_fetch_array($result)) {
-		
-	$word = $row['word'];
-	$tot = $row['tot'];
-	echo "<b><a href='akhar.php?akhar=$word'>".$word."</a></b> - " . $tot;		
-	echo "<br>";
+	if($_GET['second_letter'])
+	{
+	    
+	    echo "<b><a href='letter.php?letter=$letter'>".$letter."</a></b> > ";
+	    echo $_GET['second_letter'];
+	    
+	    echo "<hr/>";
+	    
+	    $search_letter = $letter . $_GET['second_letter'];
+	    
+	    $sql = "SELECT word, tot from word where word like '$search_letter%' order by word";
+	     
+	    $result = mysqli_query($con,$sql);
+	     
+	    $row_cnt = $result->num_rows;
+	     
+	    echo "Total words = " . $row_cnt;
+	     
+	    echo "<br><br>";
+	     
+	    while($row = mysqli_fetch_array($result)) {
+	        $word = $row['word'];
+	        $tot = $row['tot'];
+	        echo "<b><a href='akhar.php?akhar=$word'>".$word."</a></b> - " . $tot . "<br>";
+	    }	    
+	    
+	} else {
+	    
+	    $sql = "SELECT DISTINCT SUBSTR(word,2,1) AS duja FROM word WHERE word LIKE '$letter%' ORDER BY duja";
+	    $result = mysqli_query($con,$sql);
+	    $row_cnt = $result->num_rows;
+	    
+	    while($row = mysqli_fetch_array($result)) {
+	        $duja = $row['duja'];
+	        echo "<b><a href='letter.php?letter=$letter&second_letter=$duja'>".$duja."</a></b> - ";
+	    }
+	    
+	    echo "<hr/>";
+	    
+	    $sql = "SELECT word, tot from word where	word like '$letter%' order by word";
+	    
+	    $result = mysqli_query($con,$sql);
+	    
+	    $row_cnt = $result->num_rows;
+	    
+	    echo "Total words = " . $row_cnt;
+	    
+	    echo "<br><br>";
+	    
+    	while($row = mysqli_fetch_array($result)) {
+    	    	$word = $row['word'];
+    	    	$tot = $row['tot'];
+    	    echo "<b><a href='akhar.php?akhar=$word'>".$word."</a></b> - " . $tot . "<br>";
+    	}	    
+	    
 	}
+	
+
 	
 	echo "<hr/>";
 	
