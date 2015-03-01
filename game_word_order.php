@@ -9,6 +9,7 @@ header('Content-Type: text/html; charset=utf-8');
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <script src="jquery.ui.touch-punch.min.js"></script>
   <style>
   #sortable { 
   	list-style-type: none; 
