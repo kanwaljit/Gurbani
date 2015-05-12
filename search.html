@@ -1,165 +1,32 @@
-<html>
 <head>
+<meta charset="utf8" >
 <title>&#2583;&#2625;&#2608;&#2604;&#2622;&#2595;&#2624; &#2565;&#2596;&#2631; &#2616;&#2623;&#2673;&#2582;</title>
 
 <script language="JavaScript">
-function pad(anystr) {
-	
-//document.khalsanews_search.q.value += anystr;
-insertAtCursor(document.khalsanews_search.q, anystr)
-document.getElementById('q').focus();
-//document.getElementById('key_map').style.display='block';
-} 
+
 function tap(obj) {
 	//pad(obj.innerHTML);
-	outputchar(obj.innerHTML);
+	//outputchar(obj.innerHTML);
+	document.getElementById('q').value+=obj.innerHTML;
+	alert(document.getElementById('q').value);
 }
-
-function insertAtCursor(myField, myValue) 
-{
-	//IE support
-	if (document.selection) 
-	{
-		myField.focus();
-		sel = document.selection.createRange();
-		sel.text = myValue;
-	}
-	//MOZILLA/NETSCAPE support
-	else if (myField.selectionStart || myField.selectionStart == '0') 
-	{
-		var startPos = myField.selectionStart;
-		var endPos = myField.selectionEnd;
-		myField.value = myField.value.substring(0, startPos)
-		+ myValue
-		+ myField.value.substring(endPos, myField.value.length);
-	} else {
-		myField.value += myValue;
-	}
-	// focus and set selection to (initial selection + length added)
-	/* - e.g. from type in
-	ptaeditor.focus();
-	_15 = selstart + templen;
-	ptaeditor.selectionStart = _15;
-	ptaeditor.selectionEnd = _15;
-	*/
-}
-function close_map()
-{
-	//setTimeout('hide_map()', 2000);
-}
-function hide_map()
-{
-	alert('hiding');
-	document.getElementById('key_map').style.display='none';
-}
-
 
 </script>
+
 <script type='text/javascript' src='gurmukhi_keycodes.js'></script>
 </head>
 <body>
 
 <br/>
 <!-- http://www.google.com/search -->
-<form name="khalsanews_search" method="get" target="_blank" action="search.php">
-<input onfocus="JavaScript: return findthis(this);" onblur='close_map();' onkeypress="JavaScript: return keyEvent(event);" type="text" id="q"  name="q" size="31" maxlength="255" value="" style="line-height: 20px; height: 22px;"  />
+<form name="search" method="get" target="_blank" action="search.php">
+<input 
+    type="text" id="q"  name="q" size="31" 
+    maxlength="255" value="" style="line-height: 20px; height: 22px;"  />
 <input type="submit" value="Search" />
-<input type="hidden"  name="sitesearch" value="khalsanews.org" />
 </form>
 <!-- http://www.srigranth.org/images/guralpha3.jpg -->
-<IMG SRC=http://www.srigranth.org/images/guralpha3.jpg USEMAP=#GurAlphaMap BORDER=1 style='display: none;' id='key_map' >
-<MAP NAME=GurAlphaMap>
-<area shape="rect" coords= "1,1,30,30" HREF= "javascript:pad('&#2569')">
-<area shape="rect" coords= "31,1,61,30" HREF= "javascript:pad('&#2570')">
-<area shape="rect" coords= "62,1,90,30" HREF= "javascript:pad('&#2579')">
-<area shape="rect" coords= "91,1,120,30" HREF= "javascript:pad('&#2565')">
-<area shape="rect" coords= "121,1,150,30" HREF= "javascript:pad('&#2566')">
-<area shape="rect" coords= "151,1,180,30" HREF= "javascript:pad('&#2576')">
-<area shape="rect" coords= "181,1,209,30" HREF= "javascript:pad('&#2580')">
-<area shape="rect" coords= "210,1,238,30" HREF= "javascript:pad('&#2567')">
-<area shape="rect" coords= "239,1,268,30" HREF= "javascript:pad('&#2568')">
-<area shape="rect" coords= "269,1,297,30" HREF= "javascript:pad('&#2575')">
-<area shape="rect" coords= "298,1,326,30" HREF= "javascript:pad(' ')">
-<area shape="rect" coords= "327,1,355,30" HREF= "javascript:pad('&#2616')">
-<area shape="rect" coords= "356,1,384,30" HREF= "javascript:pad('&#2617')">
-<area shape="rect" coords= "385,1,414,30" HREF= "javascript:pad('&#2581')">
-<area shape="rect" coords= "415,1,444,30" HREF= "javascript:pad('&#2582')">
-<area shape="rect" coords= "445,1,474,30" HREF= "javascript:pad('&#2583')">
-<area shape="rect" coords= "475,1,503,30" HREF= "javascript:pad('&#2584')">
-<area shape="rect" coords= "504,1,533,30" HREF= "javascript:pad('&#2585')">
-<area shape="rect" coords= "1,31,30,59" HREF= "javascript:pad('&#2622')">
-<area shape="rect" coords= "31,31,61,59" HREF= "javascript:pad('&#2623')">
-<area shape="rect" coords= "62,31,90,59" HREF= "javascript:pad('&#2624')">
-<area shape="rect" coords= "91,31,120,59" HREF= "javascript:pad('&#2586')">
-<area shape="rect" coords= "121,31,150,59" HREF= "javascript:pad('&#2587')">
-<area shape="rect" coords= "151,31,180,59" HREF= "javascript:pad('&#2588')">
-<area shape="rect" coords= "181,31,209,59" HREF= "javascript:pad('&#2589')">
-<area shape="rect" coords= "210,31,238,59" HREF= "javascript:pad('&#2590')">
-<area shape="rect" coords= "239,31,268,59" HREF= "javascript:pad('&#2591')">
-<area shape="rect" coords= "269,31,297,59" HREF= "javascript:pad('&#2592')">
-<area shape="rect" coords= "298,31,326,59" HREF= "javascript:pad('&#2593')">
-<area shape="rect" coords= "327,31,355,59" HREF= "javascript:pad('&#2594')">
-<area shape="rect" coords= "356,31,384,59" HREF= "javascript:pad('&#2595')">
-<area shape="rect" coords= "385,31,414,59" HREF= "javascript:pad('&#2596')">
-<area shape="rect" coords= "415,31,444,59" HREF= "javascript:pad('&#2597')">
-<area shape="rect" coords= "445,31,474,59" HREF= "javascript:pad('&#2598')">
-<area shape="rect" coords= "475,31,503,59" HREF= "javascript:pad('&#2599')">
-<area shape="rect" coords= "504,31,533,59" HREF= "javascript:pad('&#2600')">
-<area shape="rect" coords= "1,60,30,87" HREF= "javascript:pad('&#2622&#2562')">
-<area shape="rect" coords= "31,60,61,87" HREF= "javascript:pad('&#2625')">
-<area shape="rect" coords= "62,60,90,87" HREF= "javascript:pad('&#2626')">
-<area shape="rect" coords= "91,60,120,87" HREF= "javascript:pad('&#2602')">
-<area shape="rect" coords= "121,60,150,87" HREF= "javascript:pad('&#2603')">
-<area shape="rect" coords= "151,60,180,87" HREF= "javascript:pad('&#2604')">
-<area shape="rect" coords= "181,60,209,87" HREF= "javascript:pad('&#2605')">
-<area shape="rect" coords= "210,60,238,87" HREF= "javascript:pad('&#2606')">
-<area shape="rect" coords= "239,60,268,87" HREF= "javascript:pad('&#2607')">
-<area shape="rect" coords= "269,60,297,87" HREF= "javascript:pad('&#2608')">
-<area shape="rect" coords= "298,60,326,87" HREF= "javascript:pad('&#2610')">
-<area shape="rect" coords= "327,60,355,87" HREF= "javascript:pad('&#2613')">
-<area shape="rect" coords= "356,60,384,87" HREF= "javascript:pad('&#2652')">
-<area shape="rect" coords= "385,60,414,87" HREF= "javascript:pad('&#2614')">
-<area shape="rect" coords= "415,60,444,87" HREF= "javascript:pad('&#2649')">
-<area shape="rect" coords= "445,60,474,87" HREF= "javascript:pad('&#2650')">
-<area shape="rect" coords= "475,60,503,87" HREF= "javascript:pad('&#2651')">
-<area shape="rect" coords= "504,60,533,87" HREF= "javascript:pad('&#2654')">
-<area shape="rect" coords= "1,88,30,116" HREF= "javascript:pad('&#2631')">
-<area shape="rect" coords= "31,88,61,116" HREF= "javascript:pad('&#2632')">
-<area shape="rect" coords= "62,88,90,116" HREF= "javascript:pad('&#2675')">
-<area shape="rect" coords= "91,88,120,116" HREF= "javascript:pad('&#2611')">
-<area shape="rect" coords= "121,88,150,116" HREF= "javascript:pad('&#2637&#2607')">
-<area shape="rect" coords= "151,88,180,116" HREF= "javascript:pad('&#2637&#2608')">
-<area shape="rect" coords= "181,88,209,116" HREF= "javascript:pad('&#2637&#2617')">
-<area shape="rect" coords= "210,88,238,116" HREF= "javascript:pad('&#2637&#2613')">
-<area shape="rect" coords= "239,88,268,116" HREF= "javascript:pad('&#2637&#2617&#2637&#2617')">
-<area shape="rect" coords= "269,88,297,116" HREF= "javascript:pad('&#2637&#2607&#2637&#2607')">
-<area shape="rect" coords= "298,88,326,116" HREF= "javascript:pad('&#2637&#2586')">
-<area shape="rect" coords= "327,88,355,116" HREF= "javascript:pad('&#2637&#2591')">
-<area shape="rect" coords= "356,88,384,116" HREF= "javascript:pad('&#2637&#2596')">
-<area shape="rect" coords= "385,88,414,116" HREF= "javascript:pad('&#2637&#2600')">
-<area shape="rect" coords= "415,88,444,116" HREF= "javascript:pad('&#2620')">
-<area shape="rect" coords= "445,88,474,116" HREF= "javascript:pad('&#2672')">
-<area shape="rect" coords= "475,88,503,116" HREF= "javascript:pad('&#2562')">
-<area shape="rect" coords= "504,88,533,116" HREF= "javascript:pad('&#2673')">
-<area shape="rect" coords= "1,117,30,145" HREF= "javascript:pad('&#2635')">
-<area shape="rect" coords= "31,117,61,145" HREF= "javascript:pad('&#2636')">
-<area shape="rect" coords= "62,117,90,145" HREF= "javascript:pad('&#2674')">
-<area shape="rect" coords= "91,117,120,145" HREF= "javascript:pad('&#2663')">
-<area shape="rect" coords= "121,117,150,145" HREF= "javascript:pad('&#2664')">
-<area shape="rect" coords= "151,117,180,145" HREF= "javascript:pad('&#2665')">
-<area shape="rect" coords= "181,117,209,145" HREF= "javascript:pad('&#2666')">
-<area shape="rect" coords= "210,117,238,145" HREF= "javascript:pad('&#2667')">
-<area shape="rect" coords= "239,117,268,145" HREF= "javascript:pad('&#2668')">
-<area shape="rect" coords= "269,117,297,145" HREF= "javascript:pad('&#2669')">
-<area shape="rect" coords= "298,117,326,145" HREF= "javascript:pad('&#2670')">
-<area shape="rect" coords= "327,117,355,145" HREF= "javascript:pad('&#2671')">
-<area shape="rect" coords= "356,117,384,145" HREF= "javascript:pad('&#2662')">
-<area shape="rect" coords= "385,117,414,145" HREF= "javascript:pad('&#2563')">
-<area shape="rect" coords= "415,117,444,145" HREF= "javascript:pad('&#2676')">
-<area shape="rect" coords= "445,117,474,145" HREF= "javascript:pad('&#2637')">
-<area shape="rect" coords= "475,117,503,145" HREF= "javascript:pad('&#8205')">
-<area shape="rect" coords= "504,117,533,145" HREF= "javascript:pad('&#61483')">
-</MAP>
+
 
 <br/>
 
@@ -204,11 +71,11 @@ function hide_map()
 	<td>
 		<table class='kada' >
 			<tr>
-				<td onclick="tap(this);" >&#2675;</td>
-				<td onclick="tap(this);" >&#2565;</td>
-				<td onclick="tap(this);" >&#2674;</td>
-				<td onclick="tap(this);" >&#2616;</td>
-				<td onclick="tap(this);" >&#2617;</td>
+				<td onclick="tap(this);" >ੳ</td>
+				<td onclick="tap(this);" >ਅ</td>
+				<td onclick="tap(this);" >ੲ</td>
+				<td onclick="tap(this);" >ਸ</td>
+				<td onclick="tap(this);" >ਹ</td>
 			</tr>
 			<tr>
 				<td onclick="tap(this);" >&#2581;</td>
