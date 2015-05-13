@@ -1,0 +1,10 @@
+Next - Previous - Random -  ( on all view - Letter, Akhar, Shabad, Page, Line ) 
+ 
+All possible Links to Shabad, line within shabad, page, line within page
+
+Search on All views 
+
+Template - Header, Navigation, Footer
+
+
+ 

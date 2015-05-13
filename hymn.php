@@ -24,10 +24,16 @@ if($_GET['hymn'])
 	$hymn = rand(1,3620);
 }
 
-$result = mysqli_query($con,"SELECT scriptures.text as text, translations.text as trans FROM translations inner join scriptures on scriptures.id = translations.scripture_id
+$result = mysqli_query($con,"SELECT scriptures.text as text, translations.text as trans, scriptures.page, scriptures.line FROM translations inner join scriptures on scriptures.id = translations.scripture_id
 where translations.language_id=13 and hymn=$hymn order by scripture_id");
 
+$page = null;
 while($row = mysqli_fetch_array($result)) {
+    if($page==null) 
+    {
+        $page=$row['page'];
+        $line=$row['line'];
+    }   
   echo "<b>".$row['text']."</b>";
   echo "<br>";
   echo "".$row['trans']."";
@@ -37,7 +43,8 @@ while($row = mysqli_fetch_array($result)) {
 
 echo "<hr/>";
 
-echo $hymn; 
+
+echo "Shabad: $hymn - page: <a href='page.php?page=$page'>".$page."</a>  - line: $line";
 
 mysqli_close($con);
 

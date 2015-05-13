@@ -31,7 +31,7 @@ echo $akhar;
 
 mysql_set_charset('utf8', $con);
 
-$sql = "SELECT text, page, line from scriptures where
+$sql = "SELECT text, page, line, hymn from scriptures where
 (text like '$akhar %' ) OR 
 (text like '% $akhar %' ) OR
 (text like '% $akhar' ) 
@@ -55,7 +55,8 @@ echo "<br><br>";
 while($row = mysqli_fetch_array($result)) {
   $page=$row['page'];
   $line=$row['line'];
-  echo "<b>".$row['text']."</b> - page: <a href='page.php?page=$page'>".$page."</a> - line: " .$row['line'] ." - <a href='teeka.php?page=".$page."&line=".$line."'>Teeka</a>";
+  $hymn=$row['hymn'];
+  echo "<b>".$row['text']."</b> - Shabad: <a href='hymn.php?hymn=$hymn'>".$hymn."</a> - page: <a href='page.php?page=$page'>".$page."</a> - line: " .$row['line'] ." - <a href='teeka.php?page=".$page."&line=".$line."'>Teeka</a>";
   echo "<br>";  
   
 }
