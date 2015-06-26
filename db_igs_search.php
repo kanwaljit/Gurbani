@@ -44,7 +44,7 @@ if (!$con->set_charset("utf8")) {
 }
 
 
-$sql="SELECT ID,gurmukhi FROM igs where page<=20 order by ID";
+$sql="SELECT ID,gurmukhi FROM igs where page=21 order by ID";
 
 $result = mysqli_query($con, $sql);
 
@@ -74,10 +74,10 @@ mysqli_close($con);
 function convert($letter)
 {
 	 switch ($letter)
-	{
+	 {
 		case 'a':
-			  return 'ੳ';
-		      break;
+			    return 'ੳ';
+		        break;
 		case 'A':
 		      return 'ਅ';
 		      break;
@@ -108,9 +108,9 @@ function convert($letter)
 		case 'h':
 		      return 'ਹ';
 		      break;
-//		case 'H':
-//		      return '੍ਹ';
-//		      break;
+		case 'H':
+		      return '੍ਹ';
+		      break;
 		case 'j':
 		      return 'ਜ';
 		      break;
@@ -135,57 +135,56 @@ function convert($letter)
 		case 'Q':
 		      return 'ਥ';
 		      break;
-//		case 'w':
-//		      return 'ਾ';
-//		      break;
-//		case 'W':
-//		      return 'ਾਂ';
-//		      break;
+		case 'w':
+		      return 'ਾ';
+		      break;
+		case 'W':
+		      return 'ਾਂ';
+		      break;
 		case 'e':
 		      return 'ੲ';
 		      break;
 		case 'E':
-//		      return 'ਓ';
-		      return 'ੳ';
+		      return 'ਓ';
 		      break;
 		case 'r':
 		      return 'ਰ';
 		      break;
-//		case 'R':
-//        case '®':
-//		      return '੍ਰ';
-//		      break;
+		case 'R':
+        case '®':
+		      return '੍ਰ';
+		      break;
 		case 't':
 		      return 'ਟ';
 		      break;
 		case 'T':
 		      return 'ਠ';
 		      break;
-//		case 'y':
-//		      return 'ੇ';
-//		      break;
-//		case 'Y':
-//		      return 'ੈ';
-//		      break;
-//		case 'u':
-//		case 'ü':
-//		      return 'ੁ';
-//		      break;
-//		case 'U':
-//		      return 'ੂ';
-//		      break;
-//		case 'i':
-//		      return 'ਿ';
-//		      break;
-//		case 'I':
-//		      return 'ੀ';
-//		      break;
-//		case 'o':
-//		      return 'ੋ';
-//		      break;
-//		case 'O':
-//		      return 'ੌ';
-//		      break;
+		case 'y':
+		      return 'ੇ';
+		      break;
+		case 'Y':
+		      return 'ੈ';
+		      break;
+		case 'u':
+		case 'ü':
+		      return 'ੁ';
+		      break;
+		case 'U':
+		      return 'ੂ';
+		      break;
+		case 'i':
+		      return 'ਿ';
+		      break;
+		case 'I':
+		      return 'ੀ';
+		      break;
+		case 'o':
+		      return 'ੋ';
+		      break;
+		case 'O':
+		      return 'ੌ';
+		      break;
 		case 'p':
 		      return 'ਪ';
 		      break;
@@ -228,83 +227,73 @@ function convert($letter)
 		case 'n':
 		      return 'ਨ';
 		      break;
-//		case 'N':
-//		case 'ˆ':
-//		      return 'ਂ';
-//		      break;
+		case 'N':
+		case 'ˆ':
+		      return 'ਂ';
+		      break;
 		case 'm':
 		      return 'ਮ';
 		      break;
-//		case 'M':
-//        case 'µ':
-//		      return 'ੰ';
-//		      break;
-//		case '`':
-//		      return 'ੱ';
-//		      break;
-//        case 'Í':
-//              return '੍ਵ'
-//              break;
-//        case 'ç':
-//              return '੍ਚ'
-//              break;
-//        case '†':
-//              return '੍ਟ'
-//              break;
-//        case 'œ':
-//              return '੍ਤ'
-//              break;
-//        case '~':
-//              return '੍ਨ'
-//              break;
-//        case '´':
-//              return '੍ਯ'
-//              break;
+		case 'M':
+        case 'µ':
+		      return 'ੰ';
+		      break;
+		case '`':
+		      return 'ੱ';
+		      break;
+        case 'Í':
+              return '੍ਵ';
+              break;
+        case 'ç':
+              return '੍ਚ';
+              break;
+        case '†':
+              return '੍ਟ';
+              break;
+        case 'œ':
+              return '੍ਤ';
+              break;
+        case '~':
+              return '੍ਨ';
+              break;
+        case '´':
+              return '੍ਯ';
+              break;
 		case '1':
-//		      return '੧';
-		      return '';
+		      return '੧';
 		      break;
 		case '2':
-//		      return '੨';
-		      return '';
+		      return '੨';
 		      break;
 		case '3':
-//		      return '੩';
-		      return '';
+		      return '੩';
 		      break;
 		case '4':
-//		      return '੪';
-		      return '';
+		      return '੪';
 		      break;
 		case '5':
-//		      return '੫';
-		      return '';
+		      return '੫';
 		      break;
 		case '6':
-//		      return '੬';
-		      return '';
+		      return '੬';
 		      break;
 		case '^':
 		      return 'ਖ਼';
 		      break;
 		case '7':
-//		      return '੭';
-		      return '';
+		      return '੭';
 		      break;
 		case '&':
 		      return 'ਫ਼';
 		      break;
 		case '8':
-//		      return '੮';
-		      return '';
+		      return '੮';
 		      break;
 		case '9':
-//		      return '੯';
-		      return '';
+		      return '੯';
 		      break;
 		case '0':
-//		      return '੦';
-		      return '';
+		      return '੦';
 		      break;
 		case '\\':
 		      return 'ਞ';
@@ -313,18 +302,20 @@ function convert($letter)
 		      return 'ਙ';
 		      break;
 		case ']':
-//		      return '||';
-			  return '';
+		      return '||';
 		      break;
+		case '[':
+		      return '|';
+		      break;		      
 		case '<':
 		      return 'ੴ';
 		      break;
-//		case 'Ú':
-//		      return 'ਃ';
-//		      break;
-//        case '@':
-//		      return '੍ਹ';
-//		      break;
+		case 'Ú':
+		      return 'ਃ';
+		      break;
+        case '@':
+		      return '੍ਹ';
+		      break;
 		default:
 			return -1;
 		  //return charToConvert;
